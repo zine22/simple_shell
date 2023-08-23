@@ -1,0 +1,37 @@
+#include "main.h"
+
+/**
+* _getenv - find environment variable
+*
+* @name: env variable
+*
+* Return: value of env or null
+*/
+
+char *_getenv(char *name)
+{
+int i, len;
+
+len = _strlen(name);
+for (i = 0; environ[i]; i++)
+{
+if (_strncmp(environ[i], name, len) == 0)
+return (environ[i] + len + 1);
+}
+return (NULL);
+}
+
+/**
+* _printenv - prints all enveronment variables
+*
+*/
+
+void _printenv(void)
+{
+int i;
+
+for (i = 0; environ[i]; i++)
+{
+printf("%s\n", environ[i]);
+}
+}

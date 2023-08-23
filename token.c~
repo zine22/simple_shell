@@ -1,0 +1,30 @@
+#include "main.h"
+
+/**
+* tokenize_env - tokenize the PATH to return a list of dirs
+*
+* @path: path str to an array
+*
+* Return: array
+*/
+
+char **tokenize_env(char *path)
+{
+char *path_copy = path;
+int i = 0;
+char *token;
+
+static char *arr[20] = {NULL};
+
+if (path == NULL)
+return (NULL);
+
+token = strtok(path_copy, ":");
+while (token != NULL)
+{
+arr[i++] = token;
+token = strtok(NULL, ":");
+}
+
+return (arr);
+}
